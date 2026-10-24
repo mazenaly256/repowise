@@ -336,8 +336,14 @@ def _measure(name: str, header: Node, body: list[Node], lines: list[str]) -> Fun
         elif kind in _HANDLERS or kind == "else_if_header":
             charge(1)
             cognitive += 1
+
         elif kind in _JUMPS:
             cognitive += 1
+            if kind == "goto_statement":
+                targets = [c for c in node.children if c.type == "label"]
+                if len(targets) > 1:    # if it is a multi-target goto statement
+                    ccn += len(targets)
+
         operators = _boolean_operators(node)
         charge(operators)
         cognitive += operators
