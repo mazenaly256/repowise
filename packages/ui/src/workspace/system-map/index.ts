@@ -12,6 +12,7 @@ export {
   type SystemMapProps,
 } from "./system-map";
 export { SystemMapLegend, type SystemMapLegendProps } from "./system-map-legend";
+export { SystemMapEvidenceNotice, type SystemMapEvidenceNoticeProps } from "./system-map-evidence-notice";
 export {
   SystemMapFilters,
   Segmented,
@@ -38,7 +39,6 @@ export {
   SYSTEM_MAP_PROMPT_MAX_ROWS,
 } from "./system-map-ai-prompt";
 export {
-  healthMark,
   serviceResolver,
   summarizeServiceContracts,
   serviceDiagnostics,
