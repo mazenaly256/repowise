@@ -342,7 +342,7 @@ def _measure(name: str, header: Node, body: list[Node], lines: list[str]) -> Fun
             if kind == "goto_statement":
                 targets = [c for c in node.children if c.type == "label"]
                 if len(targets) > 1:    # if it is a multi-target goto statement
-                    ccn += len(targets)
+                    charge(len(targets))
 
         operators = _boolean_operators(node)
         charge(operators)
