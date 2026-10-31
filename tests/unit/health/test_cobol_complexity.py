@@ -201,6 +201,17 @@ def test_multi_target_goto() -> None:
     assert rows["MAIN-P"][2:5] == (4, 0, 1)     # (ccn, max_nesting, cognitive)
 
 
+def test_single_target_goto_depending_on() -> None:
+    rows = _rows(
+        _program(
+            "       MAIN-P.",
+            "           GO TO P1 DEPENDING ON WS-A.",
+        )
+    )
+    # DEPENDING ON with one target still branches: base 1 plus 1.
+    assert rows["MAIN-P"][2:5] == (2, 0, 1)
+
+
 def test_single_target_goto() -> None:
     rows = _rows(
         _program(
